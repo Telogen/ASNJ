@@ -7,7 +7,7 @@
 #' @export
 #'
 #' @examples get_nature_journal_all_content_urls('Cell Research','review')
-get_nature_journal_all_content_urls <- function(journal_home_page){
+get_nature_journal_all_content_urls <- function(journal_home_page,article_type){
 
   if(article_type == 'article'){
     url_2 <- 'research-articles'
