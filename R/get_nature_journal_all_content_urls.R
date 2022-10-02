@@ -7,12 +7,8 @@
 #' @export
 #'
 #' @examples get_nature_journal_all_content_urls('Cell Research','review')
-get_nature_journal_all_content_urls <- function(journal_name, article_type){
-  # journal_name <- 'STTT'
-  # article_type <- 'article'
+get_nature_journal_all_content_urls <- function(journal_home_page){
 
-  home_page <- get_journal_homepage(journal_name)
-  message(paste0(journal_name,' home page: ',home_page))
   if(article_type == 'article'){
     url_2 <- 'research-articles'
   } else if(article_type == 'review'){
@@ -21,7 +17,7 @@ get_nature_journal_all_content_urls <- function(journal_name, article_type){
     url_2 <- 'news-and-comment'
   }
 
-  first_page_url <- paste0(home_page,url_2)
+  first_page_url <- paste0(journal_home_page,url_2)
   first_page <- xml2::read_html(first_page_url,encoding = 'utf-8')
   all_li_a <- rvest::html_nodes(first_page,'li a') %>% as.character()
   visual_pages_idx <- grep('<span class=\"u-visually-hidden\">page </span>',all_li_a)

@@ -118,7 +118,9 @@ get_paper_metrics <- function(paper_url){
 #' @return Return a dataframe of all papers' metrics
 #' @export
 #'
-#' @examples get_all_paper_metrics(c('https://www.nature.com/articles/s41421-018-0016-3','https://www.nature.com/articles/s41421-022-00458-3'))
+#' @examples
+#' get_all_paper_metrics(c('https://www.nature.com/articles/s41421-018-0016-3',
+#' 'https://www.nature.com/articles/s41421-022-00458-3'))
 get_all_paper_metrics <- function(paper_urls,sleep_seconds = 10){
   all_paper_metrics <- c()
   for(idx in 1:length(paper_urls)){

@@ -4,7 +4,7 @@
 \alias{get_nature_journal_all_content_urls}
 \title{get nature journal all content urls}
 \usage{
-get_nature_journal_all_content_urls(journal_name, article_type)
+get_nature_journal_all_content_urls(journal_home_page)
 }
 \arguments{
 \item{journal_name}{journal name}

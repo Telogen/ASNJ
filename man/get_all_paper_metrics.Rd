@@ -18,5 +18,6 @@ Return a dataframe of all papers' metrics
 get_all_paper_metrics
 }
 \examples{
-get_all_paper_metrics(c('https://www.nature.com/articles/s41421-018-0016-3','https://www.nature.com/articles/s41421-022-00458-3'))
+get_all_paper_metrics(c('https://www.nature.com/articles/s41421-018-0016-3',
+'https://www.nature.com/articles/s41421-022-00458-3'))
 }
