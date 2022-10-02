@@ -8,13 +8,13 @@
 #' @examples get_paper_urls('https://www.nature.com/celldisc/news-and-comment?searchType=journalSearch&sort=PubDate&page=8')
 get_paper_urls <- function(content_url){
   # content_url <- 'https://www.nature.com/celldisc/news-and-comment?searchType=journalSearch&sort=PubDate&page=8'
-  paper_urls_tmp <- html_nodes(content_url,'h3 a') %>% as.character()
+  paper_urls_tmp <- rvest::html_nodes(content_url,'h3 a') %>% as.character()
   paper_urls_tmp
   paper_urls <- sapply(paper_urls_tmp,function(paper_url_tmp){
     # paper_url_tmp <- paper_urls_tmp[1]
-    start_loc <- str_locate(paper_url_tmp,'<a href=\"/articles/')[1,2] + 1
-    end_loc <- str_locate(paper_url_tmp,'\" class=\"c-card__link')[1,1] - 1
-    paper_url_tmp <- str_sub(paper_url_tmp,start_loc,end_loc)
+    start_loc <- stringr::str_locate(paper_url_tmp,'<a href=\"/articles/')[1,2] + 1
+    end_loc <- stringr::str_locate(paper_url_tmp,'\" class=\"c-card__link')[1,1] - 1
+    paper_url_tmp <- stringr::str_sub(paper_url_tmp,start_loc,end_loc)
     paper_url_tmp
     out <- paste0('https://www.nature.com/articles/',paper_url_tmp)
     return(out)
