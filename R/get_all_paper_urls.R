@@ -38,7 +38,7 @@ get_paper_urls <- function(content_url){
 get_all_paper_urls <- function(content_urls,sleep_seconds = 10){
   all_papers_urls <- c()
   for(content_url in content_urls){
-    this_content_paper_urls <- get_paper_urls(content_url,sleep_seconds = sleep_seconds)
+    this_content_paper_urls <- get_paper_urls(content_url)
     all_papers_urls <- c(all_papers_urls,this_content_paper_urls)
     Sys.sleep(sleep_seconds)
   }
