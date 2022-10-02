@@ -12,7 +12,7 @@ devtools::install_github('Telogen/ASNJ')
 
 
 ## Tutorial
-[See here](https://github.com/Telogen/ASNJ/)
+[See here](https://htmlpreview.github.io/?https://github.com/Telogen/ASNJ/blob/master/tutorial/Tutorial.html)
 
 
 ## Contact
