@@ -1,6 +1,6 @@
 #' get nature journal all content urls
 #'
-#' @param journal_name journal name
+#' @param journal_home_page journal_home_page
 #' @param article_type article type
 #'
 #' @return a vector of all cotnent pages of a journal's specific article type

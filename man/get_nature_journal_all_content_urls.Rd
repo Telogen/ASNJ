@@ -7,9 +7,9 @@
 get_nature_journal_all_content_urls(journal_home_page, article_type)
 }
 \arguments{
-\item{article_type}{article type}
+\item{journal_home_page}{journal_home_page}
 
-\item{journal_name}{journal name}
+\item{article_type}{article type}
 }
 \value{
 a vector of all cotnent pages of a journal's specific article type
