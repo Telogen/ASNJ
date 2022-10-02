@@ -4,12 +4,12 @@
 \alias{get_nature_journal_all_content_urls}
 \title{get nature journal all content urls}
 \usage{
-get_nature_journal_all_content_urls(journal_home_page)
+get_nature_journal_all_content_urls(journal_home_page, article_type)
 }
 \arguments{
-\item{journal_name}{journal name}
-
 \item{article_type}{article type}
+
+\item{journal_name}{journal name}
 }
 \value{
 a vector of all cotnent pages of a journal's specific article type
