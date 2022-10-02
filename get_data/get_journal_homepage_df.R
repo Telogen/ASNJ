@@ -4,3 +4,8 @@ journal_homepage_df <-
                           'https://www.nature.com/sigtrans/',
                           'https://www.nature.com/celldisc/',
                           'https://www.nature.com/cr/'))
+
+usethis::use_data(journal_homepage_df)
+
+
+

@@ -21,15 +21,20 @@ get_nature_journal_all_content_urls <- function(journal_home_page,article_type){
   first_page <- xml2::read_html(first_page_url,encoding = 'utf-8')
   all_li_a <- rvest::html_nodes(first_page,'li a') %>% as.character()
   visual_pages_idx <- grep('<span class=\"u-visually-hidden\">page </span>',all_li_a)
-  lastpage_idx <- visual_pages_idx[length(visual_pages_idx)]
-  lastpage_li_a <- all_li_a[lastpage_idx]
-  start_loc <- stringr::str_locate(lastpage_li_a,'searchType=journalSearch&amp;sort=PubDate&amp;page=')[1,2] + 1
-  end_loc <- stringr::str_locate(lastpage_li_a,'\">\n')[1,1] - 1
-  last_page <- stringr::str_sub(lastpage_li_a,start_loc,end_loc) %>% as.numeric()
-  last_page
-
-  paste0(first_page_url,'?searchType=journalSearch&sort=PubDate&page=',1:last_page) %>%
-    return()
+  if(length(visual_pages_idx) == 0){
+    # only one page
+    all_content_urls <- first_page_url
+  } else{
+    lastpage_idx <- visual_pages_idx[length(visual_pages_idx)]
+    lastpage_li_a <- all_li_a[lastpage_idx]
+    start_loc <- stringr::str_locate(lastpage_li_a,'searchType=journalSearch&amp;sort=PubDate&amp;page=')[1,2] + 1
+    end_loc <- stringr::str_locate(lastpage_li_a,'\">\n')[1,1] - 1
+    last_page <- stringr::str_sub(lastpage_li_a,start_loc,end_loc) %>% as.numeric()
+    last_page
+    all_content_urls <- paste0(first_page_url,'?searchType=journalSearch&sort=PubDate&page=',1:last_page)
+  }
+  all_content_urls
+  return(all_content_urls)
 }
 
 

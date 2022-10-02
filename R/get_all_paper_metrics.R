@@ -47,6 +47,10 @@ get_paper_metrics <- function(paper_url){
     access <- stringr::str_sub(access,1,stringr::str_locate(access,'k')[1,1]-1)
     access <- as.numeric(access) * 1000
   }
+  if(stringr::str_detect(access,'m')){
+    access <- stringr::str_sub(access,1,stringr::str_locate(access,'m')[1,1]-1)
+    access <- as.numeric(access) * 1000000
+  }
   access
 
   # citation
@@ -134,6 +138,7 @@ get_all_paper_metrics <- function(paper_urls,sleep_seconds = 10){
   all_paper_metrics$access <- as.numeric(all_paper_metrics$access)
   all_paper_metrics$citation <- as.numeric(all_paper_metrics$citation)
   all_paper_metrics$altmetric <- as.numeric(all_paper_metrics$altmetric)
+  all_paper_metrics$year <- as.numeric(all_paper_metrics$year)
   rownames(all_paper_metrics) <- NULL
 
   return(all_paper_metrics)

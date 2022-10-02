@@ -1,7 +1,9 @@
 # pipeline
+devtools::install_github('Telogen/ASNJ')
+
 
 library(ASNJ)
-homepage <- get_journal_homepage('Cell Discovery')
+homepage <- get_journal_homepage('Cell Discovery')    # Cell Research, Cell Discovery, STTT
 homepage
 
 article_content_urls <- get_nature_journal_all_content_urls(homepage,'article')
@@ -24,6 +26,16 @@ all_paper_metrics <- rbind(article_paper_metrics,
                            comment_paper_metrics)
 
 dim(all_paper_metrics)
-head(all_paper_metrics)
+
+table(all_paper_metrics$type)
+table(all_paper_metrics$orig_type)
+all_paper_metrics$orig_type <- factor(all_paper_metrics$orig_type,
+                                      labels = c('Article','Correspondence','Review Article')) %>% as.character()
+NA_type_idx <- which(all_paper_metrics$type == 'NA')
+all_paper_metrics[NA_type_idx,]$type <- all_paper_metrics[NA_type_idx,]$orig_type
+table(all_paper_metrics$type)
+table(all_paper_metrics$orig_type)
+
+write_xlsx(all_paper_metrics,'./STTT_papers/STTT_all_papers_info.xlsx')
 
 
