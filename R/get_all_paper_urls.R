@@ -8,7 +8,8 @@
 #' @examples get_paper_urls('https://www.nature.com/celldisc/news-and-comment?searchType=journalSearch&sort=PubDate&page=8')
 get_paper_urls <- function(content_url){
   # content_url <- 'https://www.nature.com/celldisc/news-and-comment?searchType=journalSearch&sort=PubDate&page=8'
-  paper_urls_tmp <- rvest::html_nodes(content_url,'h3 a') %>% as.character()
+  content_page <- xml2::read_html(content_url,encoding = 'utf-8')
+  paper_urls_tmp <- rvest::html_nodes(content_page,'h3 a') %>% as.character()
   paper_urls_tmp
   paper_urls <- sapply(paper_urls_tmp,function(paper_url_tmp){
     # paper_url_tmp <- paper_urls_tmp[1]

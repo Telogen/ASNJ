@@ -1,5 +1,3 @@
-
-```
 # pipeline
 devtools::install_local('/mdshare/node8/tianlejin/ASNJ/')
 # devtools::install_github('Telogen/ASNJ')
@@ -15,6 +13,3 @@ head(STTT_article_content_urls)
 # [5] "https://www.nature.com/sigtrans/research-articles?searchType=journalSearch&sort=PubDate&page=5"
 # [6] "https://www.nature.com/sigtrans/research-articles?searchType=journalSearch&sort=PubDate&page=6"
 STTT_article_paper_urls <- get_all_paper_urls(STTT_article_content_urls)
-```
-
-
