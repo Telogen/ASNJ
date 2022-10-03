@@ -19,8 +19,8 @@ devtools::install_github('Telogen/ASNJ')
 - [Analysis of Springer Nature Journal data](https://github.com/Telogen/ASNJ_data/)
   - [Cell Research](https://github.com/Telogen/ASNJ_data/tree/master/CellRes)
   - [Cell Discovery](https://github.com/Telogen/ASNJ_data/tree/master/CellDis)
-  - [STTT](https://github.com/Telogen/ASNJ_data/tree/master/STTT)
-  - [CMI](https://github.com/Telogen/ASNJ_data/tree/master/CMI)
+  - [STTT (Signal Transduction and Targeted Therapy)](https://github.com/Telogen/ASNJ_data/tree/master/STTT)
+  - [CMI (Cellular & Molecular Immunology)](https://github.com/Telogen/ASNJ_data/tree/master/CMI)
   - [Phenomics](https://github.com/Telogen/ASNJ_data/tree/master/Phenomics)
 
 
@@ -54,7 +54,7 @@ head(STTT_comment_content_urls)
 ```
 
 
-#### Step 2. Get STTT all comment papers' URLs
+### Step 2. Get STTT all comment papers' URLs
 
 ```
 STTT_comment_paper_urls <- get_all_paper_urls(STTT_comment_content_urls[1:5])
