@@ -1,4 +1,4 @@
-#' get nature journal all content urls
+#' get_all_content_urls
 #'
 #' @param journal_home_page journal_home_page
 #' @param article_type article type
@@ -6,8 +6,8 @@
 #' @return a vector of all cotnent pages of a journal's specific article type
 #' @export
 #'
-#' @examples get_nature_journal_all_content_urls('Cell Research','review')
-get_nature_journal_all_content_urls <- function(journal_home_page,article_type){
+#' @examples get_all_content_urls('Cell Research','review')
+get_all_content_urls <- function(journal_home_page,article_type){
 
   if(article_type == 'article'){
     url_2 <- 'research-articles'

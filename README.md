@@ -5,9 +5,9 @@
 devtools::install_github('Telogen/ASNJ')
 ```
 
-## Usages
-- Get home page of a Nature journal.
-- Get all papers' URLs of of a specific article type of a Nature journal.
+## Functions
+- Get the home page URL of a Springer Nature journal.
+- Get all papers' URLs of of a specific article type of a Springer Nature journal.
 - Get all papers' metrics including title, article type, online time, accesses, citations, altmetrics, subjects, etc.
 
 
