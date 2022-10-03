@@ -2,7 +2,7 @@
 
 ## What can ASNJ do?
 
-ASNJ can automatically crawl all online papers' metrics only using the homepage URL of a Springer Nature journal.
+ASNJ can automatically crawl all online papers' metrics of a specific Springer Nature journal only using the homepage URL of it.
 
 ## Installation
 ```
@@ -28,7 +28,7 @@ devtools::install_github('Telogen/ASNJ')
 
 Here we take STTT comment papers as an example.
 
-#### Step 0. Get STTT homepage
+### Step 0. Get STTT homepage
 ```
 library(ASNJ)
 STTT_homepage <- get_journal_homepage('STTT')
@@ -39,7 +39,7 @@ STTT_homepage
 Journal homepage can also be manually specified.
 
 
-#### Step 1. Get STTT all comment papers' content URLs
+### Step 1. Get STTT all comment papers' content URLs
 
 ```
 STTT_comment_content_urls <- get_all_content_urls(STTT_homepage,'comment')
@@ -69,7 +69,7 @@ head(STTT_comment_paper_urls)
 ```
 
 
-#### Step 3. Get STTT all comment papers' metrics
+### Step 3. Get STTT all comment papers' metrics
 
 ```
 STTT_comment_paper_metrics <- get_all_paper_metrics(STTT_comment_paper_urls[1:5])
