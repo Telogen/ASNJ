@@ -129,7 +129,6 @@ get_all_Phenomics_paper_metrics <- function(online_data,sleep_seconds = 10){
   all_Phenomics_papers_metrics <- c()
   for(idx in 1:nrow(online_data)){
     message(paste0(idx, " of ", nrow(online_data), "..."))
-    print(online_data$Item.Title[idx])
     this_paper_metrics <- get_Phenomics_paper_metrics(online_data,idx)
     all_Phenomics_papers_metrics <- rbind(all_Phenomics_papers_metrics,this_paper_metrics)
     Sys.sleep(sleep_seconds)

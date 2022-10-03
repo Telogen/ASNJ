@@ -87,7 +87,7 @@ get_paper_metrics <- function(paper_url){
   subjects
 
   # time
-  time_line <- rvest::html_nodes(paper_page,'li a')[grep('Published',rvest::html_nodes(paper_page,'li a'))] %>% as.character()
+  time_line <- rvest::html_nodes(paper_page,'li a')[grep('Published: <time datetime',rvest::html_nodes(paper_page,'li a'))] %>% as.character()
   time_start_loc <- stringr::str_locate(time_line,'Published: <time datetime=\"')[2] + 1
   time_end_loc <- time_start_loc + 9
   time <- stringr::str_sub(time_line,time_start_loc,time_end_loc)
