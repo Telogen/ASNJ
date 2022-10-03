@@ -1,5 +1,9 @@
 # ASNJ (Analysis of Springer Nature Journal)
 
+## What can ASNJ do?
+
+ASNJ can automatically crawl all online papers' metrics only using the homepage URL of a Springer Nature journal.
+
 ## Installation
 ```
 devtools::install_github('Telogen/ASNJ')
@@ -12,28 +16,35 @@ devtools::install_github('Telogen/ASNJ')
 
 ## Examples
 
-Analysis of Springer Nature Journal data
+- [Analysis of Springer Nature Journal data](https://github.com/Telogen/ASNJ_data/)
+  - [Cell Research](https://github.com/Telogen/ASNJ_data/tree/master/CellRes)
+  - [Cell Discovery](https://github.com/Telogen/ASNJ_data/tree/master/CellDis)
+  - [STTT](https://github.com/Telogen/ASNJ_data/tree/master/STTT)
+  - [CMI](https://github.com/Telogen/ASNJ_data/tree/master/CMI)
+  - [Phenomics](https://github.com/Telogen/ASNJ_data/tree/master/Phenomics)
 
 
 ## Usages
 
 Here we take STTT comment papers as an example.
 
-- Step 0. Get STTT homepage
+#### Step 0. Get STTT homepage
 ```
 library(ASNJ)
 STTT_homepage <- get_journal_homepage('STTT')
 STTT_homepage
+
 ## [1] "https://www.nature.com/sigtrans/"
 ```
 Journal homepage can also be manually specified.
 
 
-#### Step 1. Get STTT all comment papers' content urls
+#### Step 1. Get STTT all comment papers' content URLs
 
 ```
 STTT_comment_content_urls <- get_all_content_urls(STTT_homepage,'comment')
 head(STTT_comment_content_urls)
+
 ## [1] "https://www.nature.com/sigtrans/news-and-comment?searchType=journalSearch&sort=PubDate&page=1"
 ## [2] "https://www.nature.com/sigtrans/news-and-comment?searchType=journalSearch&sort=PubDate&page=2"
 ## [3] "https://www.nature.com/sigtrans/news-and-comment?searchType=journalSearch&sort=PubDate&page=3"
@@ -43,11 +54,12 @@ head(STTT_comment_content_urls)
 ```
 
 
-#### Step 2. Get STTT all comment papers' urls
+#### Step 2. Get STTT all comment papers' URLs
 
 ```
 STTT_comment_paper_urls <- get_all_paper_urls(STTT_comment_content_urls[1:5])
 head(STTT_comment_paper_urls)
+
 ## [1] "https://www.nature.com/articles/s41392-022-01192-8"
 ## [2] "https://www.nature.com/articles/s41392-022-01204-7"
 ## [3] "https://www.nature.com/articles/s41392-022-01193-7"
@@ -62,6 +74,7 @@ head(STTT_comment_paper_urls)
 ```
 STTT_comment_paper_metrics <- get_all_paper_metrics(STTT_comment_paper_urls[1:5])
 tibble::as.tibble(STTT_comment_paper_metrics)
+
 ## # A tibble: 5 × 10
 ##    year year_month online_time type               access citation altmetric subjects     url   title
 ##   <dbl> <chr>      <chr>       <chr>               <dbl>    <dbl>     <dbl> <chr>        <chr> <chr>
