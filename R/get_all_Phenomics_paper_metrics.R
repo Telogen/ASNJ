@@ -138,6 +138,8 @@ get_all_Phenomics_paper_metrics <- function(online_data,sleep_seconds = 10){
   rownames(all_Phenomics_papers_metrics) <- NULL
   all_Phenomics_papers_metrics$access <- as.numeric(all_Phenomics_papers_metrics$access)
   all_Phenomics_papers_metrics$citation <- as.numeric(all_Phenomics_papers_metrics$citation)
+  all_Phenomics_papers_metrics$altmetric <- as.numeric(all_Phenomics_papers_metrics$altmetric)
+  all_Phenomics_papers_metrics$year <- as.numeric(all_Phenomics_papers_metrics$year)
   all_Phenomics_papers_metrics <- all_Phenomics_papers_metrics[order(all_Phenomics_papers_metrics$time,decreasing = T),]
 
   sys.time <- Sys.time() %>% as.character()
