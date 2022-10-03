@@ -8,13 +8,11 @@ Description: Analysis of Springer Nature Journal.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Depends: 
 RoxygenNote: 7.2.0
 Imports: 
     magrittr,
     rvest,
-    xml2
+    xml2,
     dplyr,
     ggplot2,
-    R (>= 2.10),
     stringr
