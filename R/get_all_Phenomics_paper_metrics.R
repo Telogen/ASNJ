@@ -74,11 +74,12 @@ get_Phenomics_paper_metrics <- function(online_data,idx){
   correspond_authors_line <- rvest::html_nodes(webpage,'li a')[grep('corresp',rvest::html_nodes(webpage,'li a'))] %>% as.character()
   correspond_authors <- sapply(correspond_authors_line,function(line){
     # line <- correspond_authors_line[1]
-    start_loc <- stringr::str_locate(line,'Read more about ')[2] + 1
-    end_loc <- stringr::str_locate(line,'\" data-author-popup=\"')[1] - 1
+    start_loc <- stringr::str_locate(line,'data-corresp-id=\"c.\">')[2] + 1
+    end_loc <- stringr::str_locate(line,'<svg width=\"16\"')[1] - 1
     correspond_author <- stringr::str_sub(line,start_loc,end_loc)
     return(correspond_author)
   }) %>% unname() %>% paste(collapse = ', ')
+  correspond_authors
 
   # time
   time_line <- rvest::html_nodes(webpage,'li a')[grep('Published',rvest::html_nodes(webpage,'li a'))] %>% as.character()
@@ -139,7 +140,7 @@ get_all_Phenomics_paper_metrics <- function(online_data,sleep_seconds = 10){
   all_Phenomics_papers_metrics$citation <- as.numeric(all_Phenomics_papers_metrics$citation)
   all_Phenomics_papers_metrics$altmetric <- as.numeric(all_Phenomics_papers_metrics$altmetric)
   all_Phenomics_papers_metrics$year <- as.numeric(all_Phenomics_papers_metrics$year)
-  all_Phenomics_papers_metrics <- all_Phenomics_papers_metrics[order(all_Phenomics_papers_metrics$time,decreasing = T),]
+  all_Phenomics_papers_metrics <- all_Phenomics_papers_metrics[order(all_Phenomics_papers_metrics$online_time,decreasing = T),]
 
   sys.time <- Sys.time() %>% as.character()
   update_time <- strsplit(sys.time,' ')[[1]][1]
