@@ -50,8 +50,8 @@ get_Phenomics_paper_metrics <- function(online_data,idx){
 
   # citation
   citation_line <- rvest::html_nodes(webpage,'li p')[grep('Citations',rvest::html_nodes(webpage,'li p'))] %>% as.character()
-  citation_start_loc <- stringr::str_locate(citation_line,'<p class=\"c-article-metrics-bar__count\">')[2] + 1
-  citation_end_loc <- stringr::str_locate(citation_line,' <span class=\"c-article-metrics-bar__label\"')[1] - 1
+  citation_start_loc <- stringr::str_locate(citation_line,'article-metrics-bar__count\">')[2] + 1
+  citation_end_loc <- stringr::str_locate(citation_line,' <span class=\"')[1] - 1
   citation <- stringr::str_sub(citation_line,citation_start_loc,citation_end_loc)
   citation
   if(length(citation) == 0){
@@ -61,8 +61,8 @@ get_Phenomics_paper_metrics <- function(online_data,idx){
 
   # altmetric
   altmetric_line <- rvest::html_nodes(webpage,'li p')[grep('Altmetric',rvest::html_nodes(webpage,'li p'))] %>% as.character()
-  altmetric_start_loc <- stringr::str_locate(altmetric_line,'<p class=\"c-article-metrics-bar__count\">')[2] + 1
-  altmetric_end_loc <- stringr::str_locate(altmetric_line,' <span class=\"c-article-metrics-bar__label\"')[1] - 1
+  altmetric_start_loc <- stringr::str_locate(altmetric_line,'article-metrics-bar__count\">')[2] + 1
+  altmetric_end_loc <- stringr::str_locate(altmetric_line,' <span class=\"')[1] - 1
   altmetric <- stringr::str_sub(altmetric_line,altmetric_start_loc,altmetric_end_loc)
   altmetric
   if(length(altmetric) == 0){
