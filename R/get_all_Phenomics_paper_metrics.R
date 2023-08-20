@@ -34,8 +34,8 @@ get_Phenomics_paper_metrics <- function(online_data,idx){
 
   # access
   access_line <- rvest::html_nodes(webpage,'li p')[grep('Accesses',rvest::html_nodes(webpage,'li p'))] %>% as.character()
-  access_start_loc <- stringr::str_locate(access_line,'<p class=\"c-article-metrics-bar__count\">')[2] + 1
-  access_end_loc <- stringr::str_locate(access_line,' <span class=\"c-article-metrics-bar__label\"')[1] - 1
+  access_start_loc <- stringr::str_locate(access_line,'article-metrics-bar__count\">')[2] + 1
+  access_end_loc <- stringr::str_locate(access_line,' <span class=\"')[1] - 1
   access <- stringr::str_sub(access_line,access_start_loc,access_end_loc)
   access
   if(length(access) == 0){
